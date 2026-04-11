@@ -1,4 +1,4 @@
-<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/122d57eb-6c0b-44f7-b7e0-f7abf884a88a" /># 🎬 Galaxy Studio — Hệ thống đặt vé xem phim
+<img width="1919" height="1014" alt="image" src="https://github.com/user-attachments/assets/da82e0c1-a0de-4c98-aa02-f01bb64f3654" /><img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/122d57eb-6c0b-44f7-b7e0-f7abf884a88a" /># 🎬 Galaxy Studio — Hệ thống đặt vé xem phim
 
 > Dự án fullstack React + NodeJS, migrate từ PHP/MySQL legacy.
 
@@ -85,9 +85,16 @@ Dưới đây là một số hình ảnh giao diện của hệ thống:
 
 | Dashboard | Quản Lý Phim |
 | --------- | -------- |
-| ![Dashboard](assets/admin_dashboard.png) | ![Quản Lý Phim](assets/admin_movies.png) |
+| ![Dashboard]<img width="1919" height="1014" alt="image" src="https://github.com/user-attachments/assets/a51bb8fd-a6ce-47ed-a05e-fb4c688d15a6" />
+| ![Quản Lý Phim]<img width="1919" height="1014" alt="image" src="https://github.com/user-attachments/assets/bd9b8f09-59f1-4ec0-b7df-22ccf2ba58bc" />
+| ![Quản Lý Rạp]<img width="1918" height="1014" alt="image" src="https://github.com/user-attachments/assets/c1e9f35e-030b-448d-8808-a1031492626c" />
+| ![Quản Lý Vé]<img width="1919" height="1010" alt="image" src="https://github.com/user-attachments/assets/055360d6-b06e-445d-9a11-d0763bc81f96" />
+<img width="1919" height="1013" alt="image" src="https://github.com/user-attachments/assets/9ef81916-dcc3-45e4-ae44-e768090e5128" />
+<img width="1919" height="1010" alt="image" src="https://github.com/user-attachments/assets/8be7e2b7-cfbe-40c3-b7f6-e9608b801783" />
+<img width="1919" height="1013" alt="image" src="https://github.com/user-attachments/assets/77824c63-05d9-44ae-b0ea-8201f45bcb31" />
+<img width="1919" height="1011" alt="image" src="https://github.com/user-attachments/assets/d9f3c458-1113-4f29-a9e6-74b0f7fa2a96" />
 
-<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/3d7cd7b1-dd66-4674-91f6-ce7c9f78e515" />
+
 
 ## 🌐 URLs
 
