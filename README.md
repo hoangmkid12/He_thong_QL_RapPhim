@@ -69,6 +69,25 @@ cd client && npm run dev
 cd server && node src/scripts/migrate-passwords.js
 ```
 
+## 📸 Giao diện ứng dụng (Screenshots)
+
+Dưới đây là một số hình ảnh giao diện của hệ thống:
+
+### Trang Khách Hàng (User)
+> 💡 **Ghi chú**: Hãy chụp màn hình trang chủ và trang đặt vé của khách hàng rồi lưu vào thư mục `assets/` với tên `home.png` và `booking.png`.
+
+| Trang Chủ | Đặt Vé |
+| --------- | -------- |
+| ![Trang Chủ](assets/home.png) | ![Đặt Vé](assets/booking.png) |
+
+### Trang Quản Trị (Admin)
+> 💡 **Ghi chú**: Hãy chụp màn hình trang quản lý (Dashboard) và chức năng khác rồi lưu vào thư mục `assets/` với tên `admin_dashboard.png` và `admin_movies.png`.
+
+| Dashboard | Quản Lý Phim |
+| --------- | -------- |
+| ![Dashboard](assets/admin_dashboard.png) | ![Quản Lý Phim](assets/admin_movies.png) |
+
+
 ## 🌐 URLs
 
 | Service  | URL                         |
