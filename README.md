@@ -1,4 +1,4 @@
-🎬 Galaxy Studio — Hệ thống đặt vé xem phim
+> 🎬 Galaxy Studio — Hệ thống đặt vé xem phim
 
 > Dự án fullstack React + NodeJS, migrate từ PHP/MySQL legacy.
 
@@ -69,7 +69,7 @@ cd client && npm run dev
 cd server && node src/scripts/migrate-passwords.js
 ```
 
-## 📸 Giao diện ứng dụng (Screenshots)
+## 📸 Giao diện ứng dụng
 
 Dưới đây là một số hình ảnh giao diện của hệ thống:
 
