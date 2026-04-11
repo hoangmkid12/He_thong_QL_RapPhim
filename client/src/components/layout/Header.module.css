@@ -1,0 +1,119 @@
+.header {
+  position: sticky; top: 0; z-index: 200;
+  background: rgba(10,10,15,.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid transparent;
+  transition: background .3s, border-color .3s, box-shadow .3s;
+}
+.header.scrolled {
+  background: rgba(10,10,15,.97);
+  border-bottom-color: rgba(255,255,255,.08);
+  box-shadow: 0 4px 30px rgba(0,0,0,.5);
+}
+.inner {
+  display: flex; align-items: center; gap: 20px;
+  padding-top: 12px; padding-bottom: 12px;
+}
+.logo {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 1.35rem; font-weight: 800; color: #fff; flex-shrink: 0;
+  text-decoration: none;
+}
+.logoIcon { font-size: 1.6rem; }
+.logoAccent { color: #e50914; }
+
+/* Nav */
+.nav {
+  display: flex; align-items: center; gap: 4px;
+  flex: 1; flex-wrap: wrap;
+}
+.navLink {
+  background: none; border: none; color: #c8c8d8; font-size: 0.88rem; font-weight: 500;
+  padding: 8px 12px; border-radius: 6px; cursor: pointer; white-space: nowrap;
+  transition: color .2s, background .2s; text-decoration: none;
+}
+.navLink:hover { color: #fff; background: rgba(255,255,255,.07); }
+
+/* Dropdown */
+.dropdown { position: relative; }
+.dropdownMenu {
+  position: absolute; top: calc(100% + 8px); left: 0; min-width: 200px;
+  background: #13131a; border: 1px solid rgba(255,255,255,.08);
+  border-radius: 10px; padding: 8px; box-shadow: 0 20px 60px rgba(0,0,0,.7);
+  opacity: 0; visibility: hidden; transform: translateY(-8px);
+  transition: .2s ease; z-index: 300;
+}
+.dropdown:hover .dropdownMenu { opacity: 1; visibility: visible; transform: translateY(0); }
+.dropdownRight { left: auto; right: 0; }
+.dropdownItem {
+  display: block; padding: 9px 14px; border-radius: 6px; color: #c8c8d8;
+  font-size: 0.875rem; text-decoration: none; cursor: pointer; width: 100%;
+  text-align: left; background: none; border: none;
+  transition: color .15s, background .15s;
+}
+.dropdownItem:hover { color: #fff; background: rgba(255,255,255,.07); }
+.divider { border: none; border-top: 1px solid rgba(255,255,255,.08); margin: 6px 0; }
+.logoutBtn { color: #e50914 !important; }
+
+/* Search */
+.searchForm {
+  display: flex; align-items: center; background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.1); border-radius: 20px;
+  padding: 4px 4px 4px 14px; margin-left: auto;
+  transition: border-color .2s;
+}
+.searchForm:focus-within { border-color: #e50914; }
+.searchInput {
+  background: none; border: none; outline: none; color: #e8e8f0;
+  font-size: 0.85rem; width: 160px;
+}
+.searchInput::placeholder { color: #878797; }
+.searchBtn {
+  background: #e50914; border: none; border-radius: 16px;
+  padding: 5px 10px; cursor: pointer; font-size: 0.85rem;
+  transition: background .2s;
+}
+.searchBtn:hover { background: #b20710; }
+
+/* User */
+.userBtn {
+  display: flex; align-items: center; gap: 8px;
+  background: none; border: none; cursor: pointer; padding: 4px 8px; border-radius: 20px;
+  transition: background .2s; color: #e8e8f0;
+}
+.userBtn:hover { background: rgba(255,255,255,.07); }
+.avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: linear-gradient(135deg, #e50914, #ff6b6b);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 0.85rem; color: #fff;
+}
+.userName { font-size: 0.875rem; font-weight: 500; }
+
+/* Auth buttons */
+.authBtns { display: flex; gap: 8px; }
+
+/* Hamburger (mobile) */
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 6px; margin-left: auto;
+}
+.hamburger span {
+  display: block; width: 22px; height: 2px;
+  background: #e8e8f0; border-radius: 2px; transition: .3s;
+}
+
+@media (max-width: 900px) {
+  .hamburger { display: flex; }
+  .nav {
+    display: none; position: fixed; top: 60px; left: 0; right: 0;
+    background: #0a0a0f; padding: 16px; flex-direction: column;
+    align-items: stretch; border-bottom: 1px solid rgba(255,255,255,.08);
+    box-shadow: 0 20px 40px rgba(0,0,0,.8); z-index: 190;
+  }
+  .nav.navOpen { display: flex; }
+  .searchForm { width: 100%; }
+  .searchInput { width: 100%; }
+  .dropdownMenu { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; background: #1c1c27; }
+  .authBtns { flex-direction: column; }
+}
