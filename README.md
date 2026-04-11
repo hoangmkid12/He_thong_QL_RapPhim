@@ -74,8 +74,8 @@ cd server && node src/scripts/migrate-passwords.js
 Dưới đây là một số hình ảnh giao diện của hệ thống:
 
 ### Trang Khách Hàng (User)
-|<img width="1919" height="1012" alt="image" src="https://github.com/user-attachments/assets/470eefd7-b523-4357-b8fb-ae8ea69e5c01" />
-|<img width="1919" height="1015" alt="image" src="https://github.com/user-attachments/assets/b70c07b5-e6e5-4680-b9fd-8dde6f56871f" />
+<img width="1919" height="1012" alt="image" src="https://github.com/user-attachments/assets/470eefd7-b523-4357-b8fb-ae8ea69e5c01" />
+<img width="1919" height="1015" alt="image" src="https://github.com/user-attachments/assets/b70c07b5-e6e5-4680-b9fd-8dde6f56871f" />
 
 ### Trang Quản Trị (Admin)
 <img width="1919" height="1011" alt="image" src="https://github.com/user-attachments/assets/a1aa26f4-4add-498b-8690-187ef5458503" />
