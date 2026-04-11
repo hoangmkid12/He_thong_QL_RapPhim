@@ -1,4 +1,4 @@
-# 🎬 Galaxy Studio — Hệ thống đặt vé xem phim
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/122d57eb-6c0b-44f7-b7e0-f7abf884a88a" /># 🎬 Galaxy Studio — Hệ thống đặt vé xem phim
 
 > Dự án fullstack React + NodeJS, migrate từ PHP/MySQL legacy.
 
@@ -87,6 +87,7 @@ Dưới đây là một số hình ảnh giao diện của hệ thống:
 | --------- | -------- |
 | ![Dashboard](assets/admin_dashboard.png) | ![Quản Lý Phim](assets/admin_movies.png) |
 
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/3d7cd7b1-dd66-4674-91f6-ce7c9f78e515" />
 
 ## 🌐 URLs
 
