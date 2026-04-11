@@ -74,11 +74,9 @@ cd server && node src/scripts/migrate-passwords.js
 Dưới đây là một số hình ảnh giao diện của hệ thống:
 
 ### Trang Khách Hàng (User)
-> 💡 **Ghi chú**: Hãy chụp màn hình trang chủ và trang đặt vé của khách hàng rồi lưu vào thư mục `assets/` với tên `home.png` và `booking.png`.
-
 | Trang Chủ | Đặt Vé |
 | --------- | -------- |
-| ![Trang Chủ](assets/home.png) |<img width="1919" height="1015" alt="image" src="https://github.com/user-attachments/assets/b70c07b5-e6e5-4680-b9fd-8dde6f56871f" />
+|(assets/home.png) |<img width="1919" height="1015" alt="image" src="https://github.com/user-attachments/assets/b70c07b5-e6e5-4680-b9fd-8dde6f56871f" />
 
 ### Trang Quản Trị (Admin)
 <img width="1919" height="1011" alt="image" src="https://github.com/user-attachments/assets/a1aa26f4-4add-498b-8690-187ef5458503" />
