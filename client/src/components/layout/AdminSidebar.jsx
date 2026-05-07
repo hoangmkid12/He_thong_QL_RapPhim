@@ -4,6 +4,7 @@ import { useAuth } from '../../context/AuthContext'
 const MENU = [
   { icon: '🏠', label: 'Dashboard', to: '/admin', roles: [1,2,3,4] },
   { icon: '🎬', label: 'Quản lý Phim', to: '/admin/phim', roles: [2,4] },
+  { icon: '🏷️', label: 'Thể loại phim', to: '/admin/the-loai-phim', roles: [2,3,4] },
   { icon: '📅', label: 'Lịch chiếu', to: '/admin/lich-chieu', roles: [2,3,4] },
   { icon: '🏟️', label: 'Rạp chiếu', to: '/admin/rap', roles: [2,4] },
   { icon: '🚪', label: 'Phòng chiếu', to: '/admin/phong', roles: [2,3] },
@@ -14,9 +15,18 @@ const MENU = [
   { icon: '👥', label: 'Tài khoản', to: '/admin/tai-khoan', roles: [2,3,4] },
   { icon: '📝', label: 'Duyệt nghỉ phép', to: '/admin/duyet-nghi-phep', roles: [2,3] },
   { icon: '📅', label: 'Lịch làm việc', to: '/admin/lich-lam-viec', roles: [2,3] },
-  { icon: '🗓️', label: 'Lịch của tôi', to: '/lich-lam-viec', roles: [1] },
-  { icon: '✍️', label: 'Đăng ký nghỉ', to: '/dang-ky-nghi-phep', roles: [1] },
+  { icon: '🗓️', label: 'Lịch của tôi', to: '/admin/lich-cua-toi', roles: [1] },
+  { icon: '✍️', label: 'Đăng ký nghỉ', to: '/admin/dang-ky-nghi', roles: [1] },
   { icon: '📊', label: 'Thống kê', to: '/admin/thong-ke', roles: [2,3,4] },
+  { icon: '🎞️', label: 'Phân phối phim', to: '/admin/phan-phoi-phim', roles: [2,4] },
+  { icon: '🧑‍💼', label: 'NV các rạp', to: '/admin/nhan-vien-rap', roles: [2,4] },
+  { icon: '⏰', label: 'Chấm công', to: '/admin/cham-cong', roles: [2,3] },
+  { icon: '💰', label: 'Bảng lương', to: '/admin/bang-luong', roles: [2,3] },
+  { icon: '🔧', label: 'Thiết bị', to: '/admin/thiet-bi', roles: [2,3] },
+  { icon: '💬', label: 'Bình luận', to: '/admin/binh-luan', roles: [2,3] },
+  { icon: '🎫', label: 'Bán vé (POS)', to: '/admin/pos', roles: [1,3] },
+  { icon: '📷', label: 'Tự chấm công', to: '/admin/cham-cong-ca-nhan', roles: [1] },
+  { icon: '📊', label: 'Báo cáo cá nhân', to: '/admin/bao-cao-ca-nhan', roles: [1] },
 ]
 
 export default function AdminSidebar() {

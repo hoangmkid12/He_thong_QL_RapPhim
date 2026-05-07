@@ -17,6 +17,7 @@ const BookingPage        = lazy(() => import('./pages/user/BookingPage'))
 const SeatPage           = lazy(() => import('./pages/user/SeatPage'))
 const ComboPage          = lazy(() => import('./pages/user/ComboPage'))
 const CheckoutPage       = lazy(() => import('./pages/user/CheckoutPage'))
+const MomoPaymentPage    = lazy(() => import('./pages/user/MomoPaymentPage'))
 const ConfirmPage        = lazy(() => import('./pages/user/ConfirmPage'))
 const LoginPage          = lazy(() => import('./pages/user/LoginPage'))
 const RegisterPage       = lazy(() => import('./pages/user/RegisterPage'))
@@ -36,6 +37,7 @@ const LeaveRequestPage   = lazy(() => import('./pages/user/LeaveRequestPage'))
 // ─── Admin Pages (Lazy Loaded) ──────────────────────────────────
 const DashboardPage           = lazy(() => import('./pages/admin/DashboardPage'))
 const MovieManagePage         = lazy(() => import('./pages/admin/MovieManagePage'))
+const GenreManagePage         = lazy(() => import('./pages/admin/GenreManagePage'))
 const ScheduleManagePage      = lazy(() => import('./pages/admin/ScheduleManagePage'))
 const CinemaManagePage        = lazy(() => import('./pages/admin/CinemaManagePage'))
 const RoomManagePage          = lazy(() => import('./pages/admin/RoomManagePage'))
@@ -47,6 +49,15 @@ const StatisticsPage          = lazy(() => import('./pages/admin/StatisticsPage'
 const ScanTicketPage          = lazy(() => import('./pages/admin/ScanTicketPage'))
 const StaffScheduleManagePage = lazy(() => import('./pages/admin/StaffScheduleManagePage'))
 const LeaveManagePage         = lazy(() => import('./pages/admin/LeaveManagePage'))
+const MovieDistributionPage   = lazy(() => import('./pages/admin/MovieDistributionPage'))
+const CinemaStaffManagePage   = lazy(() => import('./pages/admin/CinemaStaffManagePage'))
+const AttendancePage          = lazy(() => import('./pages/admin/AttendancePage'))
+const EquipmentPage           = lazy(() => import('./pages/admin/EquipmentPage'))
+const CommentManagePage       = lazy(() => import('./pages/admin/CommentManagePage'))
+const POSPage                 = lazy(() => import('./pages/admin/POSPage'))
+const SelfCheckInPage         = lazy(() => import('./pages/admin/SelfCheckInPage'))
+const StaffReportPage         = lazy(() => import('./pages/admin/StaffReportPage'))
+const LuongPage               = lazy(() => import('./pages/admin/LuongPage'))
 
 export default function App() {
   return (
@@ -74,16 +85,16 @@ export default function App() {
           <Route path="/chon-ghe"   element={<ProtectedRoute><UserLayout><SeatPage /></UserLayout></ProtectedRoute>} />
           <Route path="/chon-combo" element={<ProtectedRoute><UserLayout><ComboPage /></UserLayout></ProtectedRoute>} />
           <Route path="/thanh-toan" element={<ProtectedRoute><UserLayout><CheckoutPage /></UserLayout></ProtectedRoute>} />
+          <Route path="/thanh-toan/momo" element={<ProtectedRoute><MomoPaymentPage /></ProtectedRoute>} />
           <Route path="/xac-nhan"   element={<ProtectedRoute><UserLayout><ConfirmPage /></UserLayout></ProtectedRoute>} />
           <Route path="/ho-so"      element={<ProtectedRoute><UserLayout><ProfilePage /></UserLayout></ProtectedRoute>} />
           <Route path="/ve-cua-toi" element={<ProtectedRoute><UserLayout><TicketListPage /></UserLayout></ProtectedRoute>} />
           <Route path="/lich-su-diem" element={<ProtectedRoute><UserLayout><PointHistoryPage /></UserLayout></ProtectedRoute>} />
-          <Route path="/lich-lam-viec" element={<ProtectedRoute><UserLayout><MyWorkSchedule /></UserLayout></ProtectedRoute>} />
-          <Route path="/dang-ky-nghi-phep" element={<ProtectedRoute><UserLayout><LeaveRequestPage /></UserLayout></ProtectedRoute>} />
 
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminLayout><DashboardPage /></AdminLayout>} />
           <Route path="/admin/phim" element={<AdminLayout><MovieManagePage /></AdminLayout>} />
+          <Route path="/admin/the-loai-phim" element={<AdminLayout><GenreManagePage /></AdminLayout>} />
           <Route path="/admin/lich-chieu" element={<AdminLayout><ScheduleManagePage /></AdminLayout>} />
           <Route path="/admin/rap" element={<AdminLayout><CinemaManagePage /></AdminLayout>} />
           <Route path="/admin/phong" element={<AdminLayout><RoomManagePage /></AdminLayout>} />
@@ -95,6 +106,17 @@ export default function App() {
           <Route path="/admin/scan-ve" element={<AdminLayout><ScanTicketPage /></AdminLayout>} />
           <Route path="/admin/lich-lam-viec" element={<AdminLayout><StaffScheduleManagePage /></AdminLayout>} />
           <Route path="/admin/duyet-nghi-phep" element={<AdminLayout><LeaveManagePage /></AdminLayout>} />
+          <Route path="/admin/phan-phoi-phim" element={<AdminLayout><MovieDistributionPage /></AdminLayout>} />
+          <Route path="/admin/nhan-vien-rap" element={<AdminLayout><CinemaStaffManagePage /></AdminLayout>} />
+          <Route path="/admin/lich-cua-toi" element={<AdminLayout><MyWorkSchedule /></AdminLayout>} />
+          <Route path="/admin/dang-ky-nghi" element={<AdminLayout><LeaveRequestPage /></AdminLayout>} />
+          <Route path="/admin/cham-cong" element={<AdminLayout><AttendancePage /></AdminLayout>} />
+          <Route path="/admin/thiet-bi" element={<AdminLayout><EquipmentPage /></AdminLayout>} />
+          <Route path="/admin/binh-luan" element={<AdminLayout><CommentManagePage /></AdminLayout>} />
+          <Route path="/admin/pos" element={<AdminLayout><POSPage /></AdminLayout>} />
+          <Route path="/admin/cham-cong-ca-nhan" element={<AdminLayout><SelfCheckInPage /></AdminLayout>} />
+          <Route path="/admin/bao-cao-ca-nhan" element={<AdminLayout><StaffReportPage /></AdminLayout>} />
+          <Route path="/admin/bang-luong" element={<AdminLayout><LuongPage /></AdminLayout>} />
 
           {/* Fallback */}
           <Route path="*" element={<Navigate to="/" replace />} />

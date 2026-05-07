@@ -40,7 +40,7 @@ const remove = async (req, res) => {
     const { id } = req.params;
     const bl = await queryOne('SELECT id_tk FROM binhluan WHERE id=?', [id]);
     if (!bl) return res.status(404).json({ success: false, message: 'Không tìm thấy bình luận' });
-    if (bl.id_tk !== req.user.id && req.user.vai_tro < 2) {
+    if (bl.id_tk !== req.user.id && req.user.vai_tro < 2 && req.user.vai_tro !== 3) {
       return res.status(403).json({ success: false, message: 'Không có quyền xóa bình luận này' });
     }
     await execute('DELETE FROM binhluan WHERE id=?', [id]);

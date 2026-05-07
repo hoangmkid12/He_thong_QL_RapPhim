@@ -159,4 +159,45 @@ const getRevenueByPhimRap = async (req, res) => {
   }
 };
 
-module.exports = { getSummary, getRevenueByDate, getRevenueByRap, getTopMovies, getRevenueByPhimRap };
+const getStaffReport = async (req, res) => {
+  try {
+    const id_nv = req.user.id;
+    const currentMonth = new Date().toISOString().slice(0, 7); // YYYY-MM
+    
+    // 1. Số giờ làm việc trong tháng hiện tại
+    const chamCong = await query(
+      `SELECT gio_vao, gio_ra FROM cham_cong 
+       WHERE id_nv = ? AND ngay LIKE ? AND gio_ra != '00:00:00'`, 
+      [id_nv, `${currentMonth}%`]
+    );
+    let totalHours = 0;
+    chamCong.forEach(c => {
+      const [h1, m1] = c.gio_vao.split(':').map(Number);
+      const [h2, m2] = c.gio_ra.split(':').map(Number);
+      const diff = (h2 * 60 + m2) - (h1 * 60 + m1);
+      if (diff > 0) totalHours += diff / 60;
+    });
+
+    // 2. Số vé bán được và tổng doanh thu do nhân viên này bán
+    const [sales] = await query(
+      `SELECT COUNT(id) AS tickets_sold, COALESCE(SUM(price), 0) AS revenue 
+       FROM ve 
+       WHERE tao_boi = ? AND trang_thai IN (1,2,4)`,
+      [id_nv]
+    );
+
+    return res.json({
+      success: true,
+      data: {
+        totalHours: totalHours.toFixed(1),
+        ticketsSold: sales.tickets_sold,
+        revenue: parseInt(sales.revenue)
+      }
+    });
+  } catch (err) {
+    console.error('[TK] getStaffReport error:', err);
+    return res.status(500).json({ success: false, message: 'Lỗi server' });
+  }
+};
+
+module.exports = { getSummary, getRevenueByDate, getRevenueByRap, getTopMovies, getRevenueByPhimRap, getStaffReport };

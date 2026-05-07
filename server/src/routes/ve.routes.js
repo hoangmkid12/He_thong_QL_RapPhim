@@ -4,6 +4,7 @@ const { authenticate } = require('../middleware/auth');
 const { requireAdmin } = require('../middleware/rbac');
 
 router.post('/dat-ve', authenticate, ctrl.datVe);
+router.post('/pos', authenticate, ctrl.datVePOS);
 router.get('/my', authenticate, ctrl.getMyVe);
 router.get('/admin', authenticate, requireAdmin, ctrl.getAllAdmin);
 router.get('/:id', authenticate, ctrl.getOne);

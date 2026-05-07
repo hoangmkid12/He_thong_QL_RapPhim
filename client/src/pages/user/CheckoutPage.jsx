@@ -25,21 +25,29 @@ export default function CheckoutPage() {
 
   const handleConfirm = async () => {
     if (!method) return toast.error('Vui lòng chọn phương thức thanh toán')
+
+    const payload = {
+      id_phim: movie.id,
+      id_lc: showtime.id_lc,
+      id_gio: showtime.id_gio,
+      id_rap: rap?.id,
+      ghe: seats,
+      combo: combos?.join(' | ') || '',
+      gia_ghe: total,
+      diem_doi: booking.diemDoi || 0,
+      giam_gia_diem: booking.giamGiaDiem || 0,
+      id_km: booking.idKm || null,
+      phuong_thuc: method,
+    }
+
+    // Nếu chọn MoMo → chuyển sang cổng thanh toán MoMo
+    if (method === 'Momo') {
+      navigate('/thanh-toan/momo', { state: { payload } })
+      return
+    }
+
     setLoading(true)
     try {
-      const payload = {
-        id_phim: movie.id,
-        id_lc: showtime.id_lc,
-        id_gio: showtime.id_gio,
-        id_rap: rap?.id,
-        ghe: seats,
-        combo: combos?.join(' | ') || '',
-        gia_ghe: total,
-        diem_doi: booking.diemDoi || 0,
-        giam_gia_diem: booking.giamGiaDiem || 0,
-        id_km: booking.idKm || null,
-        phuong_thuc: method,
-      }
       const { data } = await api.post('/ve/dat-ve', payload)
       toast.success('Đặt vé thành công! 🎉')
       navigate('/xac-nhan', { state: { ticket: data.data } })

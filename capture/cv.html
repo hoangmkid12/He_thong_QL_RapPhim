@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV - Nguyen Hoang My</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    color: #333;
+    background: #fff;
+    font-size: 10.5px;
+    line-height: 1.45;
+  }
+
+  .cv-container {
+    width: 210mm;
+    min-height: 297mm;
+    display: flex;
+    overflow: hidden;
+  }
+
+  /* ── LEFT SIDEBAR ── */
+  .sidebar {
+    width: 34%;
+    background: linear-gradient(180deg, #1a3a5c 0%, #0f2a45 100%);
+    color: #ffffff;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .photo-section {
+    text-align: center;
+    padding: 28px 20px 20px;
+    background: linear-gradient(180deg, #1e4468 0%, #1a3a5c 100%);
+  }
+
+  .photo-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid rgba(255,255,255,0.3);
+    margin: 0 auto 12px;
+    overflow: hidden;
+    background: #2a5a8a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .photo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .photo-initials {
+    font-size: 36px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 2px;
+  }
+
+  .sidebar-section {
+    padding: 16px 22px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .sidebar-title {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    color: #7cb8e8;
+    margin-bottom: 12px;
+    position: relative;
+    padding-bottom: 6px;
+  }
+
+  .sidebar-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 28px;
+    height: 2px;
+    background: #7cb8e8;
+    border-radius: 1px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 8px;
+    font-size: 9.5px;
+    gap: 8px;
+  }
+
+  .contact-icon {
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    margin-top: 1px;
+  }
+
+  .contact-text {
+    color: #c8ddf0;
+    word-break: break-all;
+  }
+
+  .skill-item {
+    font-size: 9.5px;
+    color: #c8ddf0;
+    margin-bottom: 6px;
+    padding-left: 10px;
+    position: relative;
+  }
+
+  .skill-item::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #7cb8e8;
+    font-size: 8px;
+  }
+
+  .skill-category {
+    font-weight: 700;
+    color: #e0ecf7;
+  }
+
+  .lang-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+    font-size: 9.5px;
+    color: #c8ddf0;
+  }
+
+  .lang-level {
+    background: rgba(124,184,232,0.2);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 8.5px;
+    color: #7cb8e8;
+    font-weight: 600;
+  }
+
+  .cert-item {
+    font-size: 9.5px;
+    color: #c8ddf0;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    position: relative;
+  }
+
+  .cert-item::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: #7cb8e8;
+    font-size: 7px;
+  }
+
+  /* ── MAIN CONTENT ── */
+  .main {
+    width: 66%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 28px 28px 22px;
+    border-bottom: 3px solid #1a3a5c;
+  }
+
+  .name {
+    font-size: 28px;
+    font-weight: 900;
+    color: #1a3a5c;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+  }
+
+  .summary {
+    font-size: 10px;
+    line-height: 1.55;
+    color: #4a5568;
+    text-align: justify;
+  }
+
+  .summary strong {
+    color: #1a3a5c;
+    font-weight: 700;
+  }
+
+  .main-section {
+    padding: 18px 28px 10px;
+  }
+
+  .section-title {
+    font-size: 12.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #1a3a5c;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #1a3a5c;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .section-icon {
+    font-size: 13px;
+  }
+
+  /* Education */
+  .edu-header {
+    margin-bottom: 4px;
+  }
+
+  .edu-degree {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #1a3a5c;
+  }
+
+  .edu-school {
+    font-size: 10px;
+    color: #4a5568;
+    margin-bottom: 2px;
+  }
+
+  .edu-date {
+    font-size: 9px;
+    color: #718096;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .edu-detail {
+    font-size: 9.8px;
+    color: #4a5568;
+    margin-bottom: 5px;
+    padding-left: 12px;
+    position: relative;
+    text-align: justify;
+  }
+
+  .edu-detail::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #1a3a5c;
+    font-weight: 900;
+  }
+
+  .edu-detail strong {
+    color: #1a3a5c;
+    font-weight: 700;
+  }
+
+  /* Projects */
+  .project-block {
+    margin-bottom: 14px;
+  }
+
+  .project-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #1a3a5c;
+    margin-bottom: 2px;
+  }
+
+  .project-role {
+    font-size: 9.5px;
+    color: #718096;
+    font-style: italic;
+    margin-bottom: 2px;
+  }
+
+  .project-tech {
+    font-size: 9px;
+    color: #4a5568;
+    margin-bottom: 6px;
+  }
+
+  .project-tech strong {
+    color: #1a3a5c;
+  }
+
+  .project-detail {
+    font-size: 9.8px;
+    color: #4a5568;
+    margin-bottom: 4px;
+    padding-left: 12px;
+    position: relative;
+    text-align: justify;
+  }
+
+  .project-detail::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #1a3a5c;
+    font-weight: 900;
+  }
+
+  .project-detail strong {
+    color: #1a3a5c;
+    font-weight: 700;
+  }
+
+  .project-result {
+    font-size: 9.8px;
+    color: #2d6a4f;
+    margin-bottom: 4px;
+    padding-left: 12px;
+    position: relative;
+    text-align: justify;
+  }
+
+  .project-result::before {
+    content: '★';
+    position: absolute;
+    left: 0;
+    color: #2d6a4f;
+    font-size: 8px;
+  }
+
+  .project-result strong {
+    color: #1b4332;
+    font-weight: 700;
+  }
+
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .cv-container { width: 100%; min-height: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="cv-container">
+
+  <!-- ════════ LEFT SIDEBAR ════════ -->
+  <div class="sidebar">
+
+    <div class="photo-section">
+      <div class="photo-circle">
+        <span class="photo-initials">NHM</span>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="sidebar-section">
+      <div class="sidebar-title">Contact</div>
+      <div class="contact-item">
+        <span class="contact-icon">📍</span>
+        <span class="contact-text">Tan Phuoc, HCM, Ho Chi Minh</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">📞</span>
+        <span class="contact-text">0976025124</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">✉️</span>
+        <span class="contact-text">nguyenhoangmy7772004@gmail.com</span>
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="sidebar-section">
+      <div class="sidebar-title">Skills</div>
+      <div class="skill-item"><span class="skill-category">Programming:</span> JavaScript, Node.js, ReactJS</div>
+      <div class="skill-item"><span class="skill-category">Databases:</span> MySQL, PostgreSQL</div>
+      <div class="skill-item"><span class="skill-category">Tools:</span> Git/GitHub, Docker, Postman</div>
+      <div class="skill-item"><span class="skill-category">IT Support:</span> Windows/Linux OS, Hardware & Software Troubleshooting, Network Basics</div>
+      <div class="skill-item"><span class="skill-category">Analytical Problem-Solving</span></div>
+      <div class="skill-item"><span class="skill-category">Collaborative Teamwork</span></div>
+    </div>
+
+    <!-- Languages -->
+    <div class="sidebar-section">
+      <div class="sidebar-title">Languages</div>
+      <div class="lang-row">
+        <span>English</span>
+        <span class="lang-level">B1 – Intermediate</span>
+      </div>
+    </div>
+
+    <!-- Certifications -->
+    <div class="sidebar-section">
+      <div class="sidebar-title">Certifications</div>
+      <div class="cert-item">TOEIC 460+</div>
+      <div class="cert-item">Microsoft Office Specialist</div>
+    </div>
+
+  </div>
+
+  <!-- ════════ MAIN CONTENT ════════ -->
+  <div class="main">
+
+    <!-- Header -->
+    <div class="header-section">
+      <div class="name">Nguyen Hoang My</div>
+      <div class="summary">
+        Fourth-year Information Systems student seeking an internship in <strong>IT Helpdesk / Technical Support</strong>. Possesses a strong analytical troubleshooting foundation gained through developing cross-functional software systems and databases. Eager to leverage this deep technical logic, alongside excellent problem-solving skills, to rapidly diagnose hardware/software issues, resolve user tickets efficiently, and deliver outstanding IT support to maintain robust daily operations.
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="main-section">
+      <div class="section-title"><span class="section-icon">🎓</span> Education</div>
+      <div class="edu-header">
+        <div class="edu-degree">Information Systems</div>
+        <div class="edu-school">Industrial University of Ho Chi Minh City – IUH</div>
+        <div class="edu-date">Expected Graduation: March 2027</div>
+      </div>
+      <div class="edu-detail"><strong>Technical Expertise:</strong> Deeply rooted in Information Systems Analysis & Design, Relational Database Management, and Full-Stack Software Engineering.</div>
+      <div class="edu-detail"><strong>Business-Tech Alignment:</strong> Adept at leveraging technology to streamline enterprise workflows and construct data-driven Decision Support Systems (DSS).</div>
+      <div class="edu-detail"><strong>Interpersonal Skills:</strong> Proven effectiveness in Agile team collaboration, analytical problem-solving, and strict time prioritization.</div>
+    </div>
+
+    <!-- Projects -->
+    <div class="main-section">
+      <div class="section-title"><span class="section-icon">💼</span> Projects</div>
+
+      <!-- Project 1 -->
+      <div class="project-block">
+        <div class="project-title">1. High School Student Management System (PERN Stack)</div>
+        <div class="project-role">Role: Business Analyst & QA Tester (Team of 4) &nbsp;|&nbsp; 09–12/2025</div>
+        <div class="project-tech"><strong>Technologies:</strong> ReactJS, Node.js, PostgreSQL, Docker.</div>
+        <div class="project-detail"><strong>Business Analysis (BA):</strong> Gathered system requirements and constructed structured workflows for 3 distinct user segments: School Administrators/Teachers, Students, and Parents.</div>
+        <div class="project-detail"><strong>Quality Assurance (QA):</strong> Authored comprehensive test cases and directly executed functional testing (assignment delivery, automated grading) to ensure maximum stability prior to Docker container deployment.</div>
+        <div class="project-result"><strong>Key Achievement:</strong> Delivered a highly stable application with minimal bugs; successfully resolved the two-way communication barrier, ensuring 100% accuracy in delivering academic schedules and results to parents.</div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-block">
+        <div class="project-title">2. Cinema Management & Online Ticketing (Galaxy Studio)</div>
+        <div class="project-role">Role: Full-Stack Developer (Team of 2) &nbsp;|&nbsp; 02–04/2026</div>
+        <div class="project-tech"><strong>Technologies:</strong> ReactJS, Node.js, MySQL, JWT.</div>
+        <div class="project-detail"><strong>System Architecture:</strong> Analyzed business workflows to design the MySQL database; implemented a secure 5-tier Role-Based Access Control (RBAC) model adhering to enterprise standards.</div>
+        <div class="project-detail"><strong>Full-Stack Development:</strong> Developed the platform end-to-end, covering the Customer portal (seat reservation, checkout, loyalty points) and the Admin Dashboard (revenue charting, automated QR code ticket scanning API).</div>
+        <div class="project-result"><strong>Key Achievement:</strong> Successfully simulated real-world cinema operations, ensuring seamless seat booking without data conflicts and achieving 100% automation in ticket validation.</div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

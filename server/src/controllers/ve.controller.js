@@ -56,9 +56,9 @@ const datVe = async (req, res) => {
       await conn.execute('UPDATE hoa_don SET trang_thai = 1 WHERE id = ?', [id_hd]);
       await conn.execute('UPDATE ve SET trang_thai = 1 WHERE id_hd = ?', [id_hd]);
 
-      // 4. Cộng điểm (chỉ cho thành viên vai_tro = 0)
+      // 4. Cộng điểm
       let diem_cong = 0;
-      if (req.user?.vai_tro === 0 && gia_ghe > 0) {
+      if (gia_ghe > 0) {
         diem_cong = Math.floor(gia_ghe / 1000);
         if (diem_cong > 0) {
           await conn.execute(
@@ -230,6 +230,50 @@ const datVe = async (req, res) => {
 };
 
 /**
+ * POST /api/ve/pos — Nhân viên đặt vé tại quầy
+ */
+const datVePOS = async (req, res) => {
+  try {
+    const { id_phim, id_lc, id_gio, ghe, combo, gia_ghe, phuong_thuc, id_khuyen_mai, tien_giam, thanh_toan_cuoi } = req.body;
+    const id_nv = req.user.id;
+    const id_rap = req.user.id_rap;
+
+    if (!id_phim || !id_lc || !id_gio || !ghe || !gia_ghe) {
+      return res.status(400).json({ success: false, message: 'Thiếu thông tin đặt vé' });
+    }
+
+    const gheStr = Array.isArray(ghe) ? ghe.join(',') : ghe;
+    const ngay_tt = new Date().toISOString().slice(0, 19).replace('T', ' ');
+    const tong_thanh_tien = gia_ghe; // Gia_ghe passed from client includes seat + combo price
+    const final_pay = thanh_toan_cuoi !== undefined ? thanh_toan_cuoi : tong_thanh_tien;
+
+    const result = await transaction(async (conn) => {
+      // 1. Tạo hóa đơn
+      const [hdResult] = await conn.execute(
+        'INSERT INTO hoa_don (ngay_tt, thanh_tien, trang_thai, phuong_thuc, id_khuyen_mai, tien_giam, thanh_toan_cuoi) VALUES (?,?,?,?,?,?,?)',
+        [ngay_tt, tong_thanh_tien, 1, phuong_thuc || 'Tiền mặt', id_khuyen_mai || null, tien_giam || 0, final_pay] // Trạng thái = 1 (đã thanh toán)
+      );
+      const id_hd = hdResult.insertId;
+
+      // 2. Tạo vé
+      const [veResult] = await conn.execute(
+        `INSERT INTO ve (price, ngay_dat, ghe, id_tk, id_thoi_gian_chieu, id_hd, id_ngay_chieu, id_phim, combo, id_rap, trang_thai, tao_boi)
+         VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`,
+        [final_pay, ngay_tt, gheStr, id_nv, id_gio, id_hd, id_lc, id_phim, combo || '', id_rap || null, 1, id_nv]
+      );
+      const id_ve = veResult.insertId;
+
+      return { id_ve, id_hd };
+    });
+
+    return res.status(201).json({ success: true, message: 'Đặt vé tại quầy thành công!', data: result });
+  } catch (err) {
+    console.error('[VE] datVePOS error:', err.message);
+    return res.status(500).json({ success: false, message: 'Lỗi server khi đặt vé' });
+  }
+};
+
+/**
  * GET /api/ve/my — Danh sách vé của user hiện tại
  */
 const getMyVe = async (req, res) => {
@@ -392,4 +436,4 @@ const updateTrangThai = async (req, res) => {
   }
 };
 
-module.exports = { datVe, getMyVe, getOne, huyVe, getAllAdmin, updateTrangThai };
+module.exports = { datVe, datVePOS, getMyVe, getOne, huyVe, getAllAdmin, updateTrangThai };

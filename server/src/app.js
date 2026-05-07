@@ -37,6 +37,10 @@ app.use('/api/tin-tuc',    require('./routes/tintuc.routes'));
 app.use('/api/lich-lam-viec', require('./routes/lichlamviec.routes'));
 app.use('/api/nghi-phep',  require('./routes/leave.routes'));
 app.use('/api/voucher',    require('./routes/voucher.routes'));
+app.use('/api/phim-rap',   require('./routes/phimrap.routes'));
+app.use('/api/cham-cong',  require('./routes/chamcong.routes'));
+app.use('/api/thiet-bi',   require('./routes/thietbi.routes'));
+app.use('/api/luong',      require('./routes/luong.routes'));
 app.use('/api',            require('./routes/misc.routes'));
 
 // ─── 404 handler ─────────────────────────────────────────────────

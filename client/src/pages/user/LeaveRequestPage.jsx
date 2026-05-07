@@ -37,7 +37,7 @@ export default function LeaveRequestPage() {
   }
 
   return (
-    <div className="container page-enter" style={{ padding: '32px 16px', maxWidth: 900 }}>
+    <div className="admin-page page-enter" style={{ maxWidth: 900 }}>
       <h1 style={{ fontSize: '1.6rem', fontWeight: 800, marginBottom: 24 }}>📝 Đăng ký nghỉ phép</h1>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 24 }}>

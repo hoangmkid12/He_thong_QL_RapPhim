@@ -117,10 +117,32 @@ const remove = async (req, res) => {
       const u = await queryOne('SELECT id_rap FROM taikhoan WHERE id = ?', [id]);
       if (u && u.id_rap !== req.user.id_rap) return res.status(403).json({ success: false, message: 'Từ chối truy cập' });
     }
-    await execute('DELETE FROM taikhoan WHERE id = ?', [id]);
+
+    const { transaction } = require('../config/db');
+    await transaction(async (conn) => {
+      // Xóa dữ liệu liên quan theo thứ tự (con trước, cha sau)
+      await conn.execute('DELETE FROM ngay_nghi_phep WHERE id_nv = ? OR nguoi_duyet = ?', [id, id]);
+      await conn.execute('DELETE FROM lich_su_diem WHERE id_tk = ?', [id]);
+      await conn.execute('DELETE FROM lich_su_thanh_toan_ve WHERE id_tk = ?', [id]);
+      await conn.execute('DELETE FROM lich_su_thay_doi_bangluong WHERE id_user_thay_doi = ?', [id]);
+      await conn.execute('DELETE FROM binhluan WHERE id_tk = ?', [id]);
+      await conn.execute('DELETE FROM thuong_khen_thuong WHERE id_nv = ? OR id_user_duyet = ?', [id, id]);
+      await conn.execute('DELETE FROM lich_su_phe_duyet_bangluong WHERE id_user_duyet = ?', [id]);
+      await conn.execute('DELETE FROM bang_luong_lich_su WHERE nguoi_thuc_hien = ?', [id]);
+      await conn.execute('DELETE FROM cong_them_gio WHERE id_nv = ?', [id]);
+      await conn.execute('UPDATE ve SET check_in_boi = NULL WHERE check_in_boi = ?', [id]);
+      await conn.execute('UPDATE ve SET tao_boi = NULL WHERE tao_boi = ?', [id]);
+      await conn.execute('DELETE FROM cau_hinh_luong_nv WHERE id_nv = ?', [id]);
+      await conn.execute('DELETE FROM don_nghi_phep WHERE id_nhan_vien = ?', [id]);
+      await conn.execute('DELETE FROM lich_lam_viec WHERE id_nhan_vien = ?', [id]);
+      // Cuối cùng xóa tài khoản
+      await conn.execute('DELETE FROM taikhoan WHERE id = ?', [id]);
+    });
+
     return res.json({ success: true, message: 'Xóa tài khoản thành công' });
   } catch (err) {
-    return res.status(500).json({ success: false, message: 'Lỗi server' });
+    console.error('[TAIKHOAN] remove error:', err.message);
+    return res.status(500).json({ success: false, message: 'Lỗi server: ' + err.message });
   }
 };
 

@@ -44,7 +44,7 @@ export default function MyWorkSchedule() {
   const fmtTime = (t) => t?.slice(0, 5)
 
   return (
-    <div className="container page-enter" style={{ padding: '40px 16px' }}>
+    <div className="admin-page page-enter">
       <div style={{ marginBottom: 32 }}>
         <h1 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: 8 }}>💼 Lịch làm việc của tôi</h1>
         <p style={{ color: '#878797' }}>Chào {user?.name}, theo dõi các ca làm việc của bạn trong tuần.</p>

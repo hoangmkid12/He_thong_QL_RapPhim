@@ -3,6 +3,9 @@ const ctrl = require('../controllers/thongke.controller');
 const { authenticate } = require('../middleware/auth');
 const { requireAdmin } = require('../middleware/rbac');
 
+// Public cho staff
+router.get('/staff-report', authenticate, ctrl.getStaffReport);
+
 router.use(authenticate, requireAdmin);
 
 router.get('/summary', ctrl.getSummary);
